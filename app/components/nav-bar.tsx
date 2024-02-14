@@ -75,12 +75,12 @@ export function Navbar(props: {
                   {props.user?.name}
               </li>
               <li>
-                <Link to={props.session ? "/create-event" : "/login"}>
+                <Link to={props.session ? props.user ?  "/create-event" : "/getting-started" : "/login"}>
                   Create an Event
                 </Link>
               </li>
               <li>
-                <Link to={props.session ? "/events" : "/login"}>My Events</Link>
+                <Link to={props.session ? props.user ?  "/events" : "/getting-started"  : "/login"}>{props.user && props.user.brand ? "Events" : "My Events"}</Link>
               </li>
               <li>
                 <button onClick={() => props.supabase.auth.signOut()} className={"font-bold"}>

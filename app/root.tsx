@@ -53,7 +53,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
   const url = new URL(request.url);
 
-  if (session && url.pathname !== ("/getting-started" || "/getting-started/")) {
+  if (session && url.pathname != ("/getting-started" || "/getting-started/")) {
     const { data: userData } = await supabaseService
       .from("users")
       .select("user, name, email, brand")
